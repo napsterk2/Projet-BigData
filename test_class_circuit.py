@@ -1,5 +1,5 @@
 class GestionnaireCircuit:
-	listeVillesParcourus[]
+	listeVillesParcourus = []
 	
 	def ajouterVille(self, ville):
 		self.listeVillesParcourus.append(ville)
