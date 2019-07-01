@@ -1,48 +1,59 @@
 import random
+from pays import *
+from circuit import *
 
 class algorithme:
-    def __inti(self, gestionnaire_circuit):
-        self.gestionnaire_circuit= gestionnaire_circuit
-        self.tauxMutation = 0.015
-        self.tailleTournoi = 5
-        #elitisme
+    elites = []      
         
-        def selectionTournoi (self, echant):
-            tournoi = Echantillon(self.gestionnaire_circuit, self.tailleTournoi, False)
-            for i in range(0, self.tailleTournoi):
-                randomId = int (random.random() * echant.tailleEchantillon())
-                tournoi.sauvegarderCircuit(i, echant.getCircuit(randomId))
-                fittest = tournoi.getFittest()
-            return fittest
+    def __init__(self, pays):          
+        self.pays= pays
         
-        def muter(self, circuit):
-            for circuitPos1 in range(0,circuit.tailleCircuit()):
-                if random.random() < self.tauxMutation:
-                   circuitPos2 = int(circuit.tailleCircuit() * random.random())
-                   
-                   ville1 = circuit.getVille(circuitPos1)
-                   ville2 = circuit.getVille(circuitPos2)
-                   
-                   circuit.setVille(circuitPos2, ville1)
-                   circuit.setVille(circuitPos1, ville2)                
+    #Génére aléatoire n (paramètre taille) circuit dans le pays de l'agorithme
+    #Renvoie celui a la distance la plus courte
+    def tournoiAleatoire (self, taille):
+        circuitListTemp = []
+        for i in range (0,taille):
+            
+            circuitListTemp.append(Circuit(i,self.pays.villes))            
+            
+            print(circuitListTemp[i].calculateDistance())                
+            
+            #On met a jour si necessaire la liste des élites
+            if  self.getBigestElite() != 0 and (circuitListTemp[i].calculateDistance() < self.getBigestElite()):
+                indexInsert=ii=0                
+                while(ii<10 and self.elites[ii] != None):
+                    if self.elites[ii].calculateDistance() >circuitListTemp[i].calculateDistance():
+                        indexInsert = ii            
+                    ii += 1                                
+                self.elites.insert(indexInsert,circuitListTemp[i])                
+                del self.elites[-1] 
+                print("nouvel elite\n")
+            elif self.getBigestElite() == 0:
+                self.elites.append(circuitListTemp[i])
+                print("nouvel elite\n")      
+                
+        
+            if i == 0:
+               bestCircuitTournoi=circuitListTemp[i]
+            else :
+                if circuitListTemp[i].calculateDistance() < bestCircuitTournoi.calculateDistance():
+                    bestCircuitTournoi=circuitListTemp[i]
+                    
+        print("meilleur circuit :")
+        print (bestCircuitTournoi.calculateDistance())
+        return bestCircuitTournoi
+                    
+    #renvoie l'élite au parcours le plus long
+    def getBigestElite (self):
+        #la méthode renvoie zéro si l'array n'est pas remplie
+        if len(self.elites) < 10:
+            return 0
+        bigestElite = 0
+        for i in range (10):
+            if self.elites[i].calculateDistance() >bigestElite :
+                bigestElite = self.elites[i].calculateDistance()
+        return bigestElite
 
-        
-        
-        def evoluerEchantillon (self, echant):
-            nouvelleEchantillon = Echantillon(self.gestionnaire_circuit, echant.tailleEchantillon(),False)
-            for i in range (0,nouvelleEchantillon.tailleEchantillon()):
-                parent1 = self.selectionTournoi(echant)
-                parent2 = self.selectionTournoi(echant)
-                enfant = self.crossover(parent1,parent2)
-            for i in range(0,nouvelleEchantillon.tailleEchantillon()):
-                
-                if not enfant.contientVille(parent2.getVille(i)):
-                    for ii in range(0, enfant.tailleCircuit()):
-                        if enfant.getVille(ii) == None:
-                            enfant.setVille(ii, parent2.getVille(i))
-                            break      
-      return enfant
-                
                 
                 
                 
