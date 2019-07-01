@@ -1,7 +1,7 @@
 from ville import *
 from random import randint
 
-class CreatePays:
+class Pays:
     
     
     def get_x(self):
@@ -11,29 +11,68 @@ class CreatePays:
         self.name = x
     
     
-    def __init__(self, name, nombreVilles):
+    def __init__(self, name):
         self.name = name
+        
+        
+        
+        
+        
+    def createPays(self, nombreVilles):
+        
         
         self.nombreVilles = nombreVilles
         
+        self.pays = []  	
     
-        nombreVilles = int(nombreVilles)
-        
-        
-        
-        
+        nombreVilles = int(nombreVilles)       
         
         for x in range(nombreVilles):
             
-            self.append(CreateVille("Tamere", 10, 50))
+            nomVille = "Ville"+str(x)
+            
+            
+            repeat = True
+            
+            while repeat == True:
+                
+                again = False
+            
+                abscisse = randint(0, 99)
+                ordonee = randint(0, 99)
+                
+                if len(self.pays) > 0:
+                
+                    for x in self.pays:
+                        
+                        if (x.x == abscisse) and (x.y == ordonee):
+                            again = True
+                            print("--------------------------"+str(abscisse)+" "+str(ordonee))
+                            break
+                        
+                    if again == False:
+                        break
+                    
+                else:
+                    break
+            
+            
+            self.pays.append(CreateVille(nomVille, abscisse, ordonee))
         
       
 
-ville2 = CreateVille("Tamere", 10, 50)
+
+
+
+
+
+
 
 print ("Entrez la taille de la matrice (attention + d'1 minute d'attente apres 500) ")
 nombreVilles = input()
 
-p1 = CreatePays("pays1", nombreVilles)
+p1 = Pays("pays1")
+p1.createPays(nombreVilles)
 
-
+for x in p1.pays:
+    print(x.name, x.x, x.y)

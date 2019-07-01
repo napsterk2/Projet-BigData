@@ -10,8 +10,6 @@ class CreateVille:
     def set_x(self, x):
         self.name = x
     
-    #self.ville = [self.name, self.x, self.y]
-
 
 ville1 = CreateVille("Tamere", 10, 50)
 
