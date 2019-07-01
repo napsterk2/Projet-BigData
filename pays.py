@@ -57,7 +57,7 @@ class Pays:
                     break
             
             
-            self.pays.append(CreateVille(nomVille, abscisse, ordonee))
+            self.pays.append(Ville(nomVille, abscisse, ordonee))
         
       
 

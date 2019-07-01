@@ -28,5 +28,5 @@ for index in range(len(locations)):
 		calcul_distance = ((locations[indexbis][0] - coor[0])**2 + (locations[indexbis][1] - coor[1])**2)**0.5 #calcul la distance
 		table_listebis.append(round(calcul_distance, 0))
 	table_liste.append(table_listebis)
-print table_liste
+print (table_liste)
 	
