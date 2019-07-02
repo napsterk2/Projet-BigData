@@ -52,16 +52,22 @@ class Circuit:
         
         self.total = 0
         
-        print("calcul de la distance")
+        #print("calcul de la distance")
         
         for ville in range(len(self.circuit)-1):
             
         
             self.total = self.total + (math.sqrt((self.circuit[ville+1].x - self.circuit[ville].x)**2+(self.circuit[ville+1].y - self.circuit[ville].y)**2))
         
+#################################################
       
         
         print(self.total)
+
+        #print(total)
+        
+        return total
+#################################################
       
 
 

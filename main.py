@@ -1,6 +1,12 @@
 from pays import *
 from circuit import *
+#################################################
 from graph import *
+
+from algorithme import *
+
+
+#################################################
 
 
 p1 = Pays("pays1")
@@ -16,7 +22,7 @@ else:
     
     p1.createPays(nombreVilles)
             
-for x in p1.pays:
+for x in p1.villes:
     print(x.name, x.x, x.y)
                     
                     
@@ -28,16 +34,26 @@ nombreCircuits = int(input())
 
 for x in range(nombreCircuits):
                     
+#################################################
     circuitList.append(Circuit("circuit"+str(x), p1.pays))
+
+    circuitList.append(Circuit("circuit", p1.villes))
+#################################################
                     
     for y in circuitList[x].circuit:
                 
         print(y.name)
                 
     circuitList[x].calculateDistance()
-    
 
-                    
+
+#################################################
+
+print("\n")
+algo = algorithme (p1)
+algo.tournoiAleatoire(20)
+
+#################################################              
 
     
 
