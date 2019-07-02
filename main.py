@@ -1,7 +1,10 @@
 from pays import *
 from circuit import *
 #################################################
+from algoGenetique import *
+from algoTournoi import *
 from graph import *
+
 #
 #from algorithme import *
 #
@@ -55,18 +58,23 @@ for x in range(nombreCircuits):
 
 ################################################              
 
-    
 
-    
 circuitList.sort(key=lambda x: x.total, reverse=True)
 
 for x in circuitList:
     
     print(x.name, x.total)
+
+algoGenetique1 = AlgoGenetique("algoGenetique1")
+algoGenetique1.algoGenetique(circuitList)
+
+algoTournoi1 = AlgoTournoi("algoTournoi1")
+algoTournoi1.algoTournoi(p1)
+
     
 g = Graph("graph")
 print("\nCircuit le moins optimisé :")
 g.createGraph(circuitList[0].circuit)
 print("Circuit le plus optimisé :")
-g.createGraph(circuitList[99].circuit)
+g.createGraph(circuitList[len(circuitList)-1].circuit)
     
