@@ -60,13 +60,13 @@ class Circuit:
             self.total = self.total + (math.sqrt((self.circuit[ville+1].x - self.circuit[ville].x)**2+(self.circuit[ville+1].y - self.circuit[ville].y)**2))
         
 #################################################
-      
-        
-        print(self.total)
-
-        #print(total)
-        
-        return total
+#      
+#        
+#        print(self.total)
+#
+#        #print(total)
+#        
+#        return total
 #################################################
       
 

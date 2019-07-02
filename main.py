@@ -1,10 +1,10 @@
 from pays import *
 from circuit import *
 #################################################
-from graph import *
-
-from algorithme import *
-
+#from graph import *
+#
+#from algorithme import *
+#
 
 #################################################
 
@@ -35,9 +35,9 @@ nombreCircuits = int(input())
 for x in range(nombreCircuits):
                     
 #################################################
-    circuitList.append(Circuit("circuit"+str(x), p1.pays))
-
-    circuitList.append(Circuit("circuit", p1.villes))
+#    circuitList.append(Circuit("circuit"+str(x), p1.pays))
+#
+#    circuitList.append(Circuit("circuit", p1.villes))
 #################################################
                     
     for y in circuitList[x].circuit:
@@ -48,10 +48,10 @@ for x in range(nombreCircuits):
 
 
 #################################################
-
-print("\n")
-algo = algorithme (p1)
-algo.tournoiAleatoire(20)
+#
+#print("\n")
+#algo = algorithme (p1)
+#algo.tournoiAleatoire(20)
 
 #################################################              
 
