@@ -24,7 +24,7 @@ class Circuit:
         
         
         
-        print("cree circuit")
+        #print("cree circuit")
         
         circuitTemp = pays.copy()
         self.circuit = []

@@ -22,13 +22,13 @@ class Graph:
         
     def createGraph(self, circuit):
         
-        print(circuit)
+        #print(circuit)
         
         x=[]
         y=[]
         
         for items in range(len(circuit)):
-            print(circuit[items])
+            #print(circuit[items])
             x.append(circuit[items].x)
             y.append(circuit[items].y)
             

@@ -40,20 +40,20 @@ for x in range(nombreCircuits):
     circuitList.append(Circuit("circuit"+str(x), p1.villes))
 #################################################
                     
-    for y in circuitList[x].circuit:
-                
-        print(y.name)
+#    for y in circuitList[x].circuit:
+#                
+#        print(y.name)
                 
     circuitList[x].calculateDistance()
 
 
-#################################################
-#
+################################################
+
 #print("\n")
-#algo = algorithme (p1)
+#algo = algorithme(p1)
 #algo.tournoiAleatoire(20)
 
-#################################################              
+################################################              
 
     
 
@@ -65,7 +65,8 @@ for x in circuitList:
     print(x.name, x.total)
     
 g = Graph("graph")
+print("\nCircuit le moins optimisé :")
 g.createGraph(circuitList[0].circuit)
-
+print("Circuit le plus optimisé :")
 g.createGraph(circuitList[99].circuit)
     
