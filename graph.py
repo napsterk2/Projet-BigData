@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
-from random import randint
-import math
+#from random import randint
+#import math
 
 
 class Graph:
