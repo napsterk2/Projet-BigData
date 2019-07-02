@@ -37,7 +37,7 @@ for x in range(nombreCircuits):
 #################################################
 #    circuitList.append(Circuit("circuit"+str(x), p1.pays))
 #
-    circuitList.append(Circuit("circuit", p1.villes))
+    circuitList.append(Circuit("circuit"+str(x), p1.villes))
 #################################################
                     
     for y in circuitList[x].circuit:
