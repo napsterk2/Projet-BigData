@@ -29,6 +29,14 @@ class Circuit:
         circuitTemp = pays.copy()
         self.circuit = []
         
+        
+        randomVille = 0
+            
+        self.circuit.append(circuitTemp[randomVille])
+            
+        circuitTemp.pop(randomVille)
+        
+        
         for ville in range(len(circuitTemp)):
         
             randomVille = randint(0, len(circuitTemp)-1)
@@ -40,6 +48,7 @@ class Circuit:
             #print(pays[randomVille].name)
             
         #print(self.circuit)
+        self.circuit.append(self.circuit[0])
         
         
         

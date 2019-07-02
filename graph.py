@@ -35,6 +35,9 @@ class Graph:
         
     
         plt.plot(x, y, '-o')
+        
+        plt.plot(x[0], y[0], color='green', linestyle='dashed', marker='o', markerfacecolor='blue', markersize=12)
+        
         plt.show()
 
         

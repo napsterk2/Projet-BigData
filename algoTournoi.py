@@ -32,7 +32,9 @@ class AlgoTournoi:
         
         circuitList[x].calculateDistance()
         
-        print(circuitList)
+        #for x in circuitList
+        
+        #print(circuitList)
 
 
 
