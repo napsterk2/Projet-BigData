@@ -50,16 +50,18 @@ class Circuit:
         
     def calculateDistance(self):
         
-        total = 0
+        self.total = 0
         
         print("calcul de la distance")
         
         for ville in range(len(self.circuit)-1):
             
         
-            total = total + (math.sqrt((self.circuit[ville+1].x - self.circuit[ville].x)**2+(self.circuit[ville+1].y - self.circuit[ville].y)**2))
+            self.total = self.total + (math.sqrt((self.circuit[ville+1].x - self.circuit[ville].x)**2+(self.circuit[ville+1].y - self.circuit[ville].y)**2))
         
-        print(total)
+      
+        
+        print(self.total)
       
 
 

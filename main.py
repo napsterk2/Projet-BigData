@@ -1,6 +1,6 @@
 from pays import *
 from circuit import *
-
+from graph import *
 
 
 p1 = Pays("pays1")
@@ -23,14 +23,33 @@ for x in p1.pays:
                     
 circuitList = []
                 
-for x in range(10):
+print ("Entrez le nombre de circuits souhaités")
+nombreCircuits = int(input())
+
+for x in range(nombreCircuits):
                     
-    circuitList.append(Circuit("circuit", p1.pays))
+    circuitList.append(Circuit("circuit"+str(x), p1.pays))
                     
     for y in circuitList[x].circuit:
                 
         print(y.name)
                 
     circuitList[x].calculateDistance()
+    
+
                     
-  
+
+    
+
+    
+circuitList.sort(key=lambda x: x.total, reverse=True)
+
+for x in circuitList:
+    
+    print(x.name, x.total)
+    
+g = Graph("graph")
+g.createGraph(circuitList[0].circuit)
+
+g.createGraph(circuitList[99].circuit)
+    
