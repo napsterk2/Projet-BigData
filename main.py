@@ -1,7 +1,7 @@
 from pays import *
 from circuit import *
 #################################################
-#from graph import *
+from graph import *
 #
 #from algorithme import *
 #
