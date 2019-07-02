@@ -3,6 +3,7 @@ import math
 import copy
 from graph import *
 from circuit import *
+from algoGenetique import *
 
 class AlgoTournoi:
     
@@ -30,13 +31,36 @@ class AlgoTournoi:
             circuitList.append(Circuit("circuit"+str(x), pays.villes))
 
         
-        circuitList[x].calculateDistance()
+            circuitList[x].calculateDistance()
         
-        #for x in circuitList
         
-        #print(circuitList)
+        circuitList.sort(key=lambda x: x.total, reverse=True)
+        
+
+            
+        algoGenetique2 = AlgoGenetique("algoGenetique2")
+        algoGenetique2.algoGenetique(circuitList)
+        
+        
+        self.meilleurCircuit = algoGenetique2.meilleursCircuits[0]
+        
 
 
 
 
+    def alterElite(self, elite):
+        
 
+        
+        elite.append(self.meilleurCircuit)
+        
+        elite.sort(key=lambda x: x.total, reverse=False)
+        
+        elite.pop(len(elite)-1)
+        
+        
+        algoGenetique3 = AlgoGenetique("algoGenetique3")
+        algoGenetique3.algoGenetique(elite)
+        elite = algoGenetique3.meilleursCircuits
+        
+     

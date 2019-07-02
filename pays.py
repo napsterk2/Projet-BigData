@@ -31,7 +31,6 @@ class Pays:
                     for x in self.villes:                        
                         if (x.x == abscisse) and (x.y == ordonee):
                             again = True
-                            print("--------------------------"+str(abscisse)+" "+str(ordonee))
                             break
                         
                     if again == False:
